@@ -1,8 +1,3 @@
-diff --git a/client/src/pages/FinancialsPage.tsx b/client/src/pages/FinancialsPage.tsx
-index fb45750b0e66b4778bd2b22860f790583694c066..514d1545570f2ce740fd19125fcdf62ee25c0fd9 100644
---- a/client/src/pages/FinancialsPage.tsx
-+++ b/client/src/pages/FinancialsPage.tsx
-@@ -1,45 +1,48 @@
  import PageLayout from "@/components/layout/PageLayout";
  import SimpleChart from "@/components/charts/SimpleChart";
  import { Card } from "@/components/ui/card";
