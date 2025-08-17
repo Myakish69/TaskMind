@@ -20,14 +20,29 @@ import {
 } from "@shared/schema";
 
 // Import JSON files
-import economicsData from "@assets/эконом_1755441047186.json";
-import marketingData from "@assets/marketing_plan.json";
-import investmentData from "@assets/invest.json";
-import comparisonData from "@assets/n8nvsmake_1755441047185.json";
-import caseStudyData from "@assets/показателимсб_1755441047185.json";
+import economicsData from "../../../attached_assets/эконом_1755441047186.json";
+import marketingData from "../../../attached_assets/marketing_plan_1755441062911.json";
+import investmentData from "../../../attached_assets/invest_1755441047185.json";
+import comparisonData from "../../../attached_assets/n8nvsmake_1755441047185.json";
+import caseStudyData from "../../../attached_assets/показателимсб_1755441047185.json";
 
-// Market Growth Data (2021-2030)
+// Market Growth Data from investment data
 export const getMarketGrowth = (): MarketGrowth[] => {
+  try {
+    const data = investmentData as any;
+    if (data.market_analysis?.growth_forecast) {
+      return data.market_analysis.growth_forecast.map((item: any) => 
+        marketGrowthSchema.parse({
+          year: item.year,
+          value: item.market_size_billion_rub
+        })
+      );
+    }
+  } catch (error) {
+    console.warn('Failed to load investment data, using fallback:', error);
+  }
+  
+  // Fallback data
   return [
     { year: 2021, value: 85 },
     { year: 2022, value: 130 },
@@ -40,8 +55,23 @@ export const getMarketGrowth = (): MarketGrowth[] => {
   ].map(item => marketGrowthSchema.parse(item));
 };
 
-// MSP Adoption Data
+// MSP Adoption Data from investment data
 export const getMSPAdoption = (): MSPAdoption[] => {
+  try {
+    const data = investmentData as any;
+    if (data.market_analysis?.growth_forecast) {
+      return data.market_analysis.growth_forecast.map((item: any) => 
+        mspAdoptionSchema.parse({
+          year: item.year,
+          percentage: item.msp_adoption_percent
+        })
+      );
+    }
+  } catch (error) {
+    console.warn('Failed to load MSP adoption data, using fallback:', error);
+  }
+  
+  // Fallback data
   return [
     { year: 2021, percentage: 10 },
     { year: 2022, percentage: 15 },
@@ -56,18 +86,59 @@ export const getMSPAdoption = (): MSPAdoption[] => {
 
 // Financial Data from economics JSON
 export const getFinancialData = (): FinancialMonth[] => {
-  const data = economicsData as any;
-  return data.financial_forecast_12_months.map((item: any) => 
-    financialMonthSchema.parse(item)
-  );
+  try {
+    const data = economicsData as any;
+    if (data.financial_forecast_12_months) {
+      return data.financial_forecast_12_months.map((item: any) => 
+        financialMonthSchema.parse(item)
+      );
+    }
+  } catch (error) {
+    console.warn('Failed to load economics data, using fallback:', error);
+  }
+  
+  // Fallback financial data
+  return [
+    { month: 1, revenue: 0, expenses: 265000, net_profit: -265000, cumulative_cash_flow: -275000 },
+    { month: 2, revenue: 44000, expenses: 265000, net_profit: -223400, cumulative_cash_flow: -498400 },
+    { month: 3, revenue: 88000, expenses: 265000, net_profit: -180200, cumulative_cash_flow: -678600 },
+    { month: 4, revenue: 159000, expenses: 312500, net_profit: -162980, cumulative_cash_flow: -724080 },
+    { month: 5, revenue: 216500, expenses: 312500, net_profit: -108890, cumulative_cash_flow: -582970 },
+    { month: 6, revenue: 276500, expenses: 340000, net_profit: -84650, cumulative_cash_flow: -554120 },
+    { month: 7, revenue: 434000, expenses: 368500, net_profit: 43250, cumulative_cash_flow: -430870 },
+    { month: 8, revenue: 537500, expenses: 393500, net_profit: 114700, cumulative_cash_flow: -160170 },
+    { month: 9, revenue: 728000, expenses: 426000, net_profit: 260200, cumulative_cash_flow: 142030 },
+    { month: 10, revenue: 725500, expenses: 257500, net_profit: 416870, cumulative_cash_flow: 658800 },
+    { month: 11, revenue: 814000, expenses: 293000, net_profit: 470840, cumulative_cash_flow: 1155140 },
+    { month: 12, revenue: 882500, expenses: 561000, net_profit: 271250, cumulative_cash_flow: 1582390 }
+  ].map(item => financialMonthSchema.parse(item));
 };
 
 // Product Matrix from economics JSON
 export const getProductMatrix = (): ProductMatrixItem[] => {
-  const data = economicsData as any;
-  return data.assumptions.product_matrix.map((item: any) => 
-    productMatrixItemSchema.parse(item)
-  );
+  try {
+    const data = economicsData as any;
+    if (data.assumptions?.product_matrix) {
+      return data.assumptions.product_matrix.map((item: any) => 
+        productMatrixItemSchema.parse(item)
+      );
+    }
+  } catch (error) {
+    console.warn('Failed to load product matrix, using fallback:', error);
+  }
+  
+  // Fallback product matrix
+  return [
+    { type: "Аудит", name: "Базовый аудит", price: 44000 },
+    { type: "Аудит", name: "Глубокий аудит", price: 75000 },
+    { type: "Внедрение", name: "Внедрение 'Стандарт'", price: 115000 },
+    { type: "Внедрение", name: "Внедрение 'Бизнес'", price: 190000 },
+    { type: "Внедрение", name: "Внедрение 'Энтерпрайз'", price: 265000 },
+    { type: "Пакет", name: "Пакет 'Быстрый старт'", price: 175000 },
+    { type: "Пакет", name: "Пакет 'Комплексное решение'", price: 275000 },
+    { type: "Поддержка", name: "Поддержка (в мес.)", price: 13500 },
+    { type: "Поддержка", name: "Пакет 'Годовая поддержка'", price: 140000 }
+  ].map(item => productMatrixItemSchema.parse(item));
 };
 
 // Marketing Data (generated from financial model assumptions)

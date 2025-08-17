@@ -48,7 +48,7 @@ export default function PieChart({ data, colors = COLORS }: PieChartProps) {
               borderRadius: '8px',
               color: 'hsl(var(--foreground))'
             }}
-            formatter={[formatValue, 'Сумма']}
+            formatter={(value: any) => [formatValue(value), 'Сумма']}
           />
           <Legend />
         </RechartsPieChart>

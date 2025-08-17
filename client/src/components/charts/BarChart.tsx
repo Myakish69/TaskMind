@@ -38,7 +38,7 @@ export default function BarChart({ data, xAxisKey, yAxisKey, title, color = "hsl
               borderRadius: '8px',
               color: 'hsl(var(--foreground))'
             }}
-            formatter={[formatValue, title || yAxisKey]}
+            formatter={(value: any) => [formatValue(value), title || yAxisKey]}
           />
           {title && <Legend />}
           <Bar 

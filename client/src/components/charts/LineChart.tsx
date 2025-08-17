@@ -38,7 +38,7 @@ export default function LineChart({ data, xAxisKey, yAxisKey, title, color = "hs
               borderRadius: '8px',
               color: 'hsl(var(--foreground))'
             }}
-            formatter={[formatValue, title || yAxisKey]}
+            formatter={(value: any) => [formatValue(value), title || yAxisKey]}
           />
           {title && <Legend />}
           <Line 
