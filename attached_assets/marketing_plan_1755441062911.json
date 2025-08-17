@@ -1,0 +1,176 @@
+{
+  "goals": {
+    "main_goal": "Привлекать лиды (заявки от МСБ) для выполнения плана продаж",
+    "KPI": {
+      "CPL_target": "≤ 2000 ₽",
+      "conversion_rate": "5–7% лид → клиент",
+      "CAC_target": "≤ 30000 ₽",
+      "ROMI_target": "≥ 300%"
+    }
+  },
+  "channels": [
+    {
+      "name": "Поиск (Яндекс/Google)",
+      "goal": "Захват горячего спроса",
+      "formats": "Текстовые объявления",
+      "CPL_expected": "1200–1800 ₽",
+      "role": "Основной драйвер сделок"
+    },
+    {
+      "name": "ВК Ads",
+      "goal": "Трафик + заявки",
+      "formats": "Лид-формы, карусели",
+      "CPL_expected": "1800–2500 ₽",
+      "role": "Дополнительные лиды, прогрев"
+    },
+    {
+      "name": "Telegram Ads/сообщества",
+      "goal": "Awareness + лиды",
+      "formats": "Натив + посты",
+      "CPL_expected": "2000–3000 ₽",
+      "role": "Кейсы, экспертность"
+    },
+    {
+      "name": "Email/мессенджеры",
+      "goal": "Дожим лидов",
+      "formats": "Автоматические рассылки",
+      "CPL_expected": null,
+      "role": "Повышение конверсии"
+    }
+  ],
+  "monthly_plan": [
+    {
+      "month": 1,
+      "budget": 40000,
+      "CPL_target": 2000,
+      "leads": 20,
+      "clients_plan": 0,
+      "CAC": null,
+      "revenue_plan": 0,
+      "ROMI": null
+    },
+    {
+      "month": 2,
+      "budget": 40000,
+      "CPL_target": 2000,
+      "leads": 20,
+      "clients_plan": 1,
+      "CAC": 40000,
+      "revenue_plan": 115000,
+      "ROMI": 1.9
+    },
+    {
+      "month": 3,
+      "budget": 40000,
+      "CPL_target": 2000,
+      "leads": 20,
+      "clients_plan": 2,
+      "CAC": 20000,
+      "revenue_plan": 230000,
+      "ROMI": 4.8
+    },
+    {
+      "month": 4,
+      "budget": 40000,
+      "CPL_target": 2000,
+      "leads": 20,
+      "clients_plan": 2,
+      "CAC": 20000,
+      "revenue_plan": 304000,
+      "ROMI": 6.6
+    },
+    {
+      "month": 5,
+      "budget": 40000,
+      "CPL_target": 1333,
+      "leads": 20,
+      "clients_plan": 3,
+      "CAC": 13333,
+      "revenue_plan": 465000,
+      "ROMI": 10.6
+    },
+    {
+      "month": 6,
+      "budget": 40000,
+      "CPL_target": 1333,
+      "leads": 20,
+      "clients_plan": 3,
+      "CAC": 13333,
+      "revenue_plan": 504000,
+      "ROMI": 11.6
+    },
+    {
+      "month": 7,
+      "budget": 40000,
+      "CPL_target": 1000,
+      "leads": 20,
+      "clients_plan": 4,
+      "CAC": 10000,
+      "revenue_plan": 640000,
+      "ROMI": 15.0
+    },
+    {
+      "month": 8,
+      "budget": 52975,
+      "CPL_target": 1059,
+      "leads": 26,
+      "clients_plan": 5,
+      "CAC": 10595,
+      "revenue_plan": 750000,
+      "ROMI": 13.2
+    },
+    {
+      "month": 9,
+      "budget": 74410,
+      "CPL_target": 1240,
+      "leads": 37,
+      "clients_plan": 6,
+      "CAC": 12402,
+      "revenue_plan": 912000,
+      "ROMI": 11.3
+    },
+    {
+      "month": 10,
+      "budget": 118060,
+      "CPL_target": 1687,
+      "leads": 59,
+      "clients_plan": 7,
+      "CAC": 16866,
+      "revenue_plan": 1085000,
+      "ROMI": 8.2
+    },
+    {
+      "month": 11,
+      "budget": 165061,
+      "CPL_target": 2358,
+      "leads": 83,
+      "clients_plan": 7,
+      "CAC": 23580,
+      "revenue_plan": 1197000,
+      "ROMI": 6.3
+    },
+    {
+      "month": 12,
+      "budget": 181252,
+      "CPL_target": 2589,
+      "leads": 91,
+      "clients_plan": 7,
+      "CAC": 25893,
+      "revenue_plan": 1211000,
+      "ROMI": 5.7
+    }
+  ],
+  "year_summary": {
+    "marketing_total": 872000,
+    "clients_total": 40,
+    "revenue_total": 6300000,
+    "avg_CPL_target": 1700,
+    "avg_CAC": 21800,
+    "ROMI": 620
+  },
+  "interpretation": {
+    "first_half": "Удерживаем CPL в диапазоне 1000–1500 ₽, по 1–3 сделки в месяц.",
+    "second_half": "С ростом бюджета допустимый CPL выше (до 2500 ₽), выходим на 6–7 сделок/мес.",
+    "investor_message": "872k ₽ в маркетинг → 40 клиентов → 6,3 млн ₽ выручки → ROMI ~620%. Масштабирование за счёт прибыли, без внешних вливаний."
+  }
+}
